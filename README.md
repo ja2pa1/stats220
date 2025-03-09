@@ -21,6 +21,8 @@ Top days of the week
 My best bowling figures (im fill in)
 https://www.playhq.com/new-zealand-cricket/org/waikato-competitions-hamilton-and-waikato-valley/hamilton-and-waikato-valley-senior-competition-summer-202425/waikato-valley-premier-t20/game-centre/ccb5c316
 
+(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXJrY3c0MWkwaW03bmQ4ejJpbG4yaDBiY2J4YTdiZTlwcjltb2FxdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h6Zm9Rxh3NSqA7Vftw/giphy.gif)
+
 A meme that captures how I currently feel about my university studies is ![]
 
 
