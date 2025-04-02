@@ -1,0 +1,51 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+
+```
+
+## Youtube ads
+
+You need to change the contents of this Rmd! Replace the R code and markdown give below in this template document.
+
+```{r}
+library(tidyverse)
+
+latest_data <- read_csv("Youtube Responses 1.csv") %>%  
+  rename(
+    ad_length = "length of the ads (seconds)",  # Numeric variable
+    video_type = "What type of video were you watching when you saw the ads?",  # Categorical
+    ad_type = "what kind of ads this you get"   # Categorical
+  ) %>%
+  select(-Timestamp)  # Remove timestamp column if it exists
+
+# Check data
+head(latest_data)
+
+
+#Summary Statistics 
+ad_length_summary <- latest_data %>%
+  summarise(
+    min = min(ad_length, na.rm = TRUE),
+    max = max(ad_length, na.rm = TRUE),
+    mean = round(mean(ad_length, na.rm = TRUE), 1),
+    count = n()
+  )
+print(ad_length_summary)
+
+
+```
+
+Types
+![](C:\Users\jaspa\OneDrive\Pictures\Screenshots\Screenshot%202025-04-02%20183500.png)
+
+Length 
+![](C:\Users\jaspa\OneDrive\Pictures\Screenshots\Screenshot 2025-04-02 183849.png)
