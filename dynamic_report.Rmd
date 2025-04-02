@@ -17,21 +17,22 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
 You need to change the contents of this Rmd! Replace the R code and markdown give below in this template document.
 
 ```{r}
+# Load required libraries
 library(tidyverse)
 
-latest_data <- read_csv("Youtube Responses 1.csv") %>%  
+# Import and clean data
+latest_data <- read_csv("Youtube Responses 1.csv") %>%
   rename(
     ad_length = "length of the ads (seconds)",  # Numeric variable
     video_type = "What type of video were you watching when you saw the ads?",  # Categorical
-    ad_type = "what kind of ads this you get"   # Categorical
-  ) %>%
-  select(-Timestamp)  # Remove timestamp column if it exists
+    ad_type = "what kind of ads this you get"  # Categorical
+  ) # Remove timestamp column
 
-# Check data
+# Print cleaned data
 head(latest_data)
 
-
-#Summary Statistics 
+# --- Summary Statistics ---
+# 1. Ad length metrics
 ad_length_summary <- latest_data %>%
   summarise(
     min = min(ad_length, na.rm = TRUE),
@@ -40,6 +41,31 @@ ad_length_summary <- latest_data %>%
     count = n()
   )
 print(ad_length_summary)
+
+# 2. Frequency of video types
+video_type_counts <- latest_data %>%
+  count(video_type, name = "count") %>%
+  arrange(desc(count))
+print(video_type_counts)
+
+
+ggplot(latest_data) +
+  geom_bar(aes(x = factor(ad_length)), fill = "#1f77b4") +  # Blue color
+  labs(
+    title = "Frequency of Ad Lengths (Seconds)",
+    x = "Ad Length (Seconds)",
+    y = "Count"
+  )
+
+
+
+ggplot(latest_data) +  # Order by frequency
+  geom_bar(aes(x = factor(ad_type)), fill = "#ff7f0e") +  # Orange color
+  labs(
+    title = "Frequency of Ad Types",
+    x = "Ad Category",
+    y = "Count"
+  )
 
 
 ```
